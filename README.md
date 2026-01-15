@@ -3,7 +3,7 @@ Ruby Data Exploration Projects
 Disclaimer
 
 Educational Purpose Only
-These projects were developed as student assignments during the web development training at THP (web dev school)
+These projects were developed as student assignments during the web development training at THP (web dev school).
 They are not intended for production use and may contain simplifications or non-optimized logic typical of learning exercises.
 
 Project 1 — Twitter Handles Analyzer
