@@ -6,8 +6,18 @@ prix = ["6558.07", "468.95", "0.487526", "762.84", "8.86", "85.26", "0.151268", 
 
 hash = crypto.zip(prix).to_h # zip fusionne les arrays crypto et prix et .to_h convertit en hash stocké dans la variable
 
-best_crypto = hash.max_by {|name, value| value.to_f} #max_by itère sur les la key (ici name) et la value et compare par value (parce que je l'ai spécifié # value to_f est dans la zone "placeholder" du bloc, on peut mettre ce qu'on veut pour dire comment max_by doit comparer. to_f ici sert à prendre en compte le fait que les valeurs dans le hash ont des virgules
-puts "#{best_crypto[0]} : #{best_crypto[1]}"
+max_crypto = hash.max_by {|name, value| value.to_f} # max_by itère sur les la key (ici name) et la value et compare par value (parce que je l'ai spécifié # value to_f est dans la zone "placeholder" du bloc, on peut mettre ce qu'on veut pour dire comment max_by doit comparer. to_f ici sert à prendre en compte le fait que les valeurs dans le hash ont des virgules
+puts "Dans le hash, la crypto qui a la valeur la plus haute #{max_crypto[0]} : #{max_crypto[1]}"
+puts ""
 
-best_crypto = hash.min_by {|name, value| value.to_f} 
-puts "#{best_crypto[0]} : #{best_crypto[1]}"
+min_crypto = hash.min_by {|name, value| value.to_f} # min_by cette fois
+puts "Dans le hash, la crypto qui a la valeur la plus basse est #{min_crypto[0]} : #{min_crypto[1]}"
+puts ""
+
+newhash = hash.select {|cryptoname, cryptovalue| cryptovalue.to_f < 6000} # J'ai changé les noms de key et value (ici cryptoname et cryptovalue) dans le bloc pour montrer que c'est possible
+puts "Dans le hash, les cryptos qui ont des valeurs inférieurs à 6000 #{newhash}"
+puts ""
+
+max_newhash = newhash.max_by {|name, value| value.to_f}
+puts "Dans le nouveau hash ne comprenant que les valeurs inférieurs à 6000, la crypto la plus élevée est #{max_newhash}"
+puts ""
